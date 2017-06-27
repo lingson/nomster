@@ -37,7 +37,7 @@
 
     
       <% if place.photos.last.present? %>
-        <%= image_tag place.photos.last.picture %>
+        <%= image_tag place.photos.last.picture, class: 'img-fluid pics' %>
       <% end %>
       <br />
       <br />
