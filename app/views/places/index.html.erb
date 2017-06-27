@@ -1,6 +1,21 @@
 <% @places.each do |place| %>
+  
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1><br />
+    <% if place.photos.present? %>
+
+    
+      <% if place.photos.last.present? %>
+        <%= image_tag place.photos.last.picture %>
+      <% end %>
+      <br />
+      <br />
+
+
+
+    
+
+<% end %>
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
 
@@ -9,7 +24,7 @@
     <% end %>
 
 <% if place.comments.present? %>
-<div class="col-12">
+
   <blockquote>
     <% if place.comments.last.humanized_rating.present? %>
       <b><%= place.comments.last.humanized_rating %></b> -
@@ -17,8 +32,11 @@
     <%= place.comments.last.message %>
     <small><%= place.comments.last.user.email %></small>
   </blockquote>
-</div>
+
 <% end %>
+
+
+
   </div>
 
   <% end %>
